@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Pre-commit hook for React + TypeScript project
+# Runs type checking and linting before allowing commit
+
+# Add common paths for bun
+export PATH="$HOME/.bun/bin:$PATH"
+
+cd frontend
+
+echo "Running TypeScript type check..."
+if ! bun run tsc -b --noEmit; then
+    echo "TypeScript errors found. Please fix them before committing."
+    exit 1
+fi
+
+echo "Running ESLint..."
+if ! bun run lint; then
+    echo "ESLint errors found. Please fix them before committing."
+    exit 1
+fi
+
+echo "Pre-commit checks passed!"
