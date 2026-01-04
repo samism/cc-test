@@ -33,7 +33,6 @@ function App() {
   return (
     <div className="app">
       <Sidebar
-        notes={notePreviews}
         selectedNoteId={selectedNoteId}
         onSelectNote={setSelectedNoteId}
         onCreateNote={handleCreateNote}

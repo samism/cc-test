@@ -3,7 +3,6 @@ import type { NotePreview } from '../types';
 import './Sidebar.css';
 
 interface SidebarProps {
-  notes: NotePreview[];
   selectedNoteId: string | null;
   onSelectNote: (id: string) => void;
   onCreateNote: () => void;
@@ -30,7 +29,6 @@ function formatDate(timestamp: number): string {
 }
 
 export function Sidebar({
-  notes,
   selectedNoteId,
   onSelectNote,
   onCreateNote,
